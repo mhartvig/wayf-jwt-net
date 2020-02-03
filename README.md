@@ -42,7 +42,7 @@ public async Task<IActionResult> Index()
 {
     var url = await wayfClient.RedirectUrl(); // Vis alle idP'er
     var nemlogon = await wayfClient.NemLogin(); // Benyt nemlogon, kræver opsætning af Wayf.
-    var scoping = await wayfClient.RedirectUrl("https://nemlogin.wayf.dk"); // Scoping, vælger idP for brugeren.
+    var scoping = await wayfClient.RedirectUrl("https://nemlogin.wayf.dk"); // Scoping, vælger idP for brugeren. Læs mere på https://www.wayf.dk/da/scoping
     return Redirect(url);
 }
 
