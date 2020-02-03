@@ -6,7 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
 
-namespace WayfJwtConector.Helpers
+namespace WayfJwtConnector.Helpers
 {
     internal sealed class RsaHelper
     {

@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Net.Http;
 using System.Text;
 
-namespace WayfJwtConector
+namespace WayfJwtConnector
 {
     public class WayfHttpClientFactory
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WayfJwtConector
+namespace WayfJwtConnector
 {
     public class WayfOptions
     {

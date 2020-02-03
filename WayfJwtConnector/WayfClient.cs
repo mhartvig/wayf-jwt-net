@@ -13,11 +13,11 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-using WayfJwtConector.Extensions;
-using WayfJwtConector.Helpers;
-using WayfJwtConector.Models;
+using WayfJwtConnector.Extensions;
+using WayfJwtConnector.Helpers;
+using WayfJwtConnector.Models;
 
-namespace WayfJwtConector
+namespace WayfJwtConnector
 {
     public class WayfClient
     {

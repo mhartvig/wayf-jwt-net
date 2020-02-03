@@ -7,9 +7,9 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Net.Http;
 using System.Text;
-using WayfJwtConector;
+using WayfJwtConnector;
 
-namespace WayfJwtConector
+namespace WayfJwtConnector
 {
      public static class WayfJwtConector
     {

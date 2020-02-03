@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Text;
 
-namespace WayfJwtConector.Extensions
+namespace WayfJwtConnector.Extensions
 {
     public static class ClaimsPrincipalExtension
     {
