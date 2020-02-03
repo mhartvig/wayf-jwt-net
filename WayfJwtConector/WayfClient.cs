@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Buffers;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IdentityModel.Tokens.Jwt;
@@ -114,14 +115,7 @@ namespace WayfJwtConector
 
         private async ValueTask<HttpResponseMessage> ExchangeTokens(Stream requestBody)
         {
-            var body = "";
-
-
-
-            using (var reader = new HttpRequestStreamReader(requestBody, Encoding.UTF8))
-            {
-                body = await reader.ReadToEndAsync();
-            }
+            var body = await ReadBody(requestBody);
 
             var content = defaultQuery
                 .Select(r => $"{HttpUtility.UrlEncode(r.Key)}={HttpUtility.UrlEncode(r.Value)}")
@@ -132,6 +126,26 @@ namespace WayfJwtConector
 
             var response = await _factory.Client.PostAsync(_options.Value.Endpoint, wayfRequest);
             return response;
+        }
+
+        private async Task<string> ReadBody(Stream requestBody)
+        {
+            StringBuilder builder = new StringBuilder();
+            byte[] buffer = ArrayPool<byte>.Shared.Rent(4096);
+            while (true)
+            {
+                var bytesRemaining = await requestBody.ReadAsync(buffer, offset: 0, buffer.Length);
+                if (bytesRemaining == 0)
+                {
+                    break;
+                }
+                var encodedString = Encoding.UTF8.GetString(buffer, 0, bytesRemaining);
+                builder.Append(encodedString);
+            }
+            ArrayPool<byte>.Shared.Return(buffer);
+
+            var entireRequestBody = builder.ToString();
+            return entireRequestBody;
         }
     }
 }
