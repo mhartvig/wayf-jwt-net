@@ -128,7 +128,7 @@ namespace WayfJwtConector
             return response;
         }
 
-        private async Task<string> ReadBody(Stream requestBody)
+        private async ValueTask<string> ReadBody(Stream requestBody)
         {
             StringBuilder builder = new StringBuilder();
             byte[] buffer = ArrayPool<byte>.Shared.Rent(4096);
