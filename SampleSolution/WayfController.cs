@@ -27,7 +27,7 @@ namespace SampleSolution
         public async Task<IActionResult> ValidateWayfLogin()
         {
             var data = await wayfClient.ValidateAsync(Request.Body);
-            return Json(data);
+            return Ok(data);
         }
     }
 }

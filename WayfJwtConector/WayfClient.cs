@@ -90,7 +90,7 @@ namespace WayfJwtConector
                 RequireExpirationTime = false,
                 RequireSignedTokens = true,
                 ValidateAudience = false,
-                ValidateIssuer = true,
+                ValidateIssuer = false,
                 IssuerSigningKey = _key,
             };
             var handler = new JwtSecurityTokenHandler();
@@ -115,6 +115,9 @@ namespace WayfJwtConector
         private async ValueTask<HttpResponseMessage> ExchangeTokens(Stream requestBody)
         {
             var body = "";
+
+
+
             using (var reader = new HttpRequestStreamReader(requestBody, Encoding.UTF8))
             {
                 body = await reader.ReadToEndAsync();

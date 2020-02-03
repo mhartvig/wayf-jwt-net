@@ -23,7 +23,10 @@ public Startup(IConfiguration configuration)
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddWayf(Configuration.GetSection("Wayf"));
-
+    services.Configure<KestrelServerOptions>(options =>
+    {
+        options.AllowSynchronousIO = true;
+    });
 }
 ```
 Controller, "/wayf/ls" er det endpoint som er Wayf er konfigureret til at svare tilbage på.
