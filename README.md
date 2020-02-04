@@ -3,7 +3,7 @@ Tilføj følgende til appsettings.json
 
 ```javascript
 "Wayf": {
-    "WayfPublicKey": "" 
+    "WayfPublicKey": "" // Public key kan findes her: https://metadata.wayf.dk/wayf-metadata.xml
     "Endpoint": "https://wayf.wayf.dk/saml2jwt",
     "Issuer": "",
     "Acs": "",
